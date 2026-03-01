@@ -16,17 +16,18 @@ export default function About() {
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-zinc-900 mb-8">About Me</h2>
             <div className="space-y-6 text-lg text-zinc-500 leading-relaxed">
               <p>
-                Hello! I'm a passionate student and developer with a deep interest in building modern web applications.
-                I enjoy the process of turning complex problems into simple, beautiful, and intuitive designs.
+                Hello! I'm a dedicated web developer with a strong passion for creating modern and efficient web
+                applications. I enjoy simplifying complex challenges and designing user-friendly, visually appealing
+                interfaces.
               </p>
               <p>
-                My journey in tech started with a curiosity for how things work on the internet, which quickly evolved
-                into a full-blown passion for web development. I'm constantly learning new technologies and refining my
-                skills to stay at the forefront of the industry.
+                My interest in technology started with a curiosity about how things work online, which grew into a
+                genuine passion for web development. I'm always exploring new tools and techniques to enhance my skills
+                and stay up-to-date with industry trends.
               </p>
               <p>
-                When I'm not coding, you can find me exploring new design trends, contributing to open-source projects,
-                or learning about the latest advancements in software engineering.
+                Outside of coding, I enjoy exploring new design concepts, contributing to open-source projects, and
+                staying informed on the latest advancements in software development.
               </p>
             </div>
           </motion.div>
