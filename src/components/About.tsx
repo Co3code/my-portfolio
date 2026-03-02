@@ -1,6 +1,6 @@
 // src/components/About.tsx
 import { motion } from "motion/react";
-import myProfilePhoto from "../assets/about.png"; // Import the image from assets
+import myProfilePhoto from "../assets/photobg.png"; // Import the image from assets
 
 export default function About() {
   return (
