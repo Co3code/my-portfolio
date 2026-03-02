@@ -15,14 +15,14 @@ const projects = [
   {
     title: "NoteVault",
     description:
-      "A landing page for a gym, built with HTML, CSS, and JavaScript. The website showcases gym services, membership plans, and features a contact form.",
+    "A personal note-taking app where users can register, log in, and store their own notes in a database. This app features user authentication, note creation, and a CRUD operation system, allowing users to manage their notes. Built with PHP, MySQL, JavaScript, and CSS.",
     tags: ["HTML", "CSS", "JavaScript"],
     image: project2Img, // Use the correct image path for your project
   },
   {
     title: "Iron Gym",
     description:
-      "A personal note-taking app where users can register, log in, and store their own notes in a database. This app features user authentication, note creation, and a CRUD operation system, allowing users to manage their notes. Built with PHP, MySQL, JavaScript, and CSS.",
+    "A landing page for a gym, built with HTML, CSS, and JavaScript. The website showcases gym services, membership plans, and features a contact form.",
     tags: ["PHP", "MySQL", "JavaScript", "CSS"],
     image: project3Img, // Use the correct image path for your project
   },
