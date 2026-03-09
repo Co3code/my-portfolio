@@ -1,7 +1,9 @@
 import { motion } from "motion/react";
-import { Download, Smartphone, Shield, Zap, Globe, Coffee, CheckCircle, Bell } from "lucide-react";
+import { Download, Smartphone, Shield, Zap, Globe, Coffee, CheckCircle, Bell, Calculator } from "lucide-react";
 import { useEffect } from "react";
 import appScreenshot from "../assets/poomodoro.jpg";
+// MAKE SURE TO ADD YOUR CALCULATOR IMAGE TO ASSETS AND IMPORT IT HERE:
+import calcScreenshot from "../assets/cal.jpg";
 
 export default function AppPage() {
   useEffect(() => {
@@ -11,7 +13,7 @@ export default function AppPage() {
   return (
     <main className="pt-32 pb-20">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        {/* Hero Section */}
+        {/* SECTION 1: POMODORO APP */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
           <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }}>
             <span className="inline-block py-1 px-3 rounded-full bg-zinc-100 text-zinc-600 text-xs font-semibold tracking-wider uppercase mb-6">
@@ -25,14 +27,13 @@ export default function AppPage() {
               </span>
             </h1>
             <p className="text-lg text-zinc-500 mb-10 max-w-xl leading-relaxed">
-              Switch between Focus Mode and Break Time with a simple, clean Pomodoro timer. Complete a 25-minute work
-              session, enjoy a 5-minute break, and repeat. Stay consistent, eliminate distractions, and build real
-              productivity momentum.
+              Switch between Focus Mode and Break Time with a simple, clean Pomodoro timer. Stay consistent, eliminate
+              distractions, and build real productivity momentum.
             </p>
 
             <div className="flex flex-wrap gap-4">
               <a
-                href="https://github.com/Co3code/pomodoro-app/releases/download/v1.0.0/pomodoro.apk" // PASTE LINK HERE
+                href="https://github.com/Co3code/pomodoro-app/releases/download/v1.0.0/pomodoro.apk"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-8 py-4 bg-zinc-900 text-white rounded-full font-bold hover:bg-zinc-800 transition-all group"
@@ -40,13 +41,7 @@ export default function AppPage() {
                 <Download className="mr-2" size={20} />
                 Download APK
               </a>
-              <button className="inline-flex items-center justify-center px-8 py-4 border border-zinc-200 text-zinc-900 rounded-full font-bold hover:bg-zinc-50 transition-all">
-                Learn More
-              </button>
             </div>
-            <p className="mt-6 text-xs text-zinc-400 italic max-w-sm">
-              * Note: Since this is an independent APK, you may need to select "Install Anyway" on Android.
-            </p>
           </motion.div>
 
           <motion.div
@@ -57,10 +52,69 @@ export default function AppPage() {
           >
             <img
               src={appScreenshot}
-              alt="App Screenshot"
+              alt="Pomodoro App"
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
             />
+          </motion.div>
+        </div>
+
+        {/* VISUAL DIVIDER */}
+        <hr className="border-zinc-100 mb-32" />
+
+        {/* SECTION 2: AC CALCULATOR (New Section) */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
+          {/* Image first on mobile, but second on desktop for alternating feel */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative aspect-[9/16] max-w-[350px] mx-auto bg-zinc-100 rounded-[3rem] border-[8px] border-zinc-900 shadow-2xl overflow-hidden lg:order-last"
+          >
+            <img
+              src={calcScreenshot}
+              alt="AC Calculator App"
+              className="w-full h-full object-cover"
+              referrerPolicy="no-referrer"
+            />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+             <span className="inline-block py-1 px-3 rounded-full bg-zinc-100 text-zinc-600 text-xs font-semibold tracking-wider uppercase mb-6">
+              Utility Tool
+            </span>
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-zinc-900 mb-8 leading-[1.1]">
+              AC Calculator <br />
+              <span className="text-zinc-400">Simple. Clean. Accurate.</span>
+              <span className="ml-4 inline-block py-1 px-2 rounded bg-blue-100 text-blue-700 text-[10px] align-middle">
+                v1.0.0
+              </span>
+            </h1>
+            <p className="text-lg text-zinc-500 mb-10 max-w-xl leading-relaxed">
+              A minimalist calculator designed by AC. Built for speed and clarity, handling your daily calculations with
+              a sleek user interface and haptic feedback for every touch.
+            </p>
+
+            <div className="flex flex-wrap gap-4">
+              <a
+                href="https://github.com/Co3code/YOUR_REPO_NAME/releases/download/v1.0.0/AC-Calculator-v1.0.0.apk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-8 py-4 bg-zinc-900 text-white rounded-full font-bold hover:bg-zinc-800 transition-all group"
+              >
+                <Download className="mr-2" size={20} />
+                Download APK
+              </a>
+            </div>
+            <p className="mt-6 text-xs text-zinc-400 italic max-w-sm">
+              * Note: For AC Calculator, you may need to select "Install Anyway" on Android.
+            </p>
           </motion.div>
         </div>
 
@@ -69,23 +123,23 @@ export default function AppPage() {
           {[
             {
               icon: <Zap />,
-              title: "Study Mode",
-              desc: "25-minute deep work sessions designed to maximize your focus and productivity.",
+              title: "Performance First",
+              desc: "Lightweight builds optimized with EAS to ensure smooth animations and instant startup on any device.",
             },
             {
-              icon: <Coffee />, // Make sure to import Coffee from 'lucide-react'
-              title: "Dual Break Modes",
-              desc: "Choose between a quick 5-minute Short Break or a 15-minute Long Break to recharge.",
+              icon: <Shield />,
+              title: "Privacy Focused",
+              desc: "Minimal permissions requested. Your data stays on your device—no unnecessary background tracking.",
             },
             {
-              icon: <CheckCircle />, // Make sure to import CheckCircle from 'lucide-react'
-              title: "Session Tracking",
-              desc: "Automatically tracks your completed study sessions to visualize your daily progress.",
+              icon: <Smartphone />,
+              title: "Native Experience",
+              desc: "Built with React Native for a fluid feel that respects Android's system-wide design and gestures.",
             },
             {
-              icon: <Bell />, // Make sure to import Bell from 'lucide-react'
-              title: "Tactile Alerts",
-              desc: "Uses haptic vibration feedback to notify you exactly when a session or break ends.",
+              icon: <Globe />,
+              title: "Open Source",
+              desc: "Transparent codebases hosted on GitHub. Built with clean, maintainable architecture and best practices.",
             },
           ].map((feature, index) => (
             <motion.div
@@ -94,7 +148,7 @@ export default function AppPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="p-8 bg-white rounded-3xl card-shadow"
+              className="p-8 bg-white rounded-3xl border border-zinc-100 shadow-sm hover:shadow-md transition-shadow"
             >
               <div className="w-12 h-12 flex items-center justify-center bg-zinc-50 rounded-2xl text-zinc-900 mb-6">
                 {feature.icon}
@@ -105,32 +159,26 @@ export default function AppPage() {
           ))}
         </div>
 
-        {/* Detailed Description */}
+        {/* Footer/CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-zinc-50 rounded-[3rem] p-12 md:p-20"
+          className="bg-zinc-50 rounded-[3rem] p-12 md:p-20 text-center"
         >
-          <div className="max-w-3xl">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-zinc-900 mb-8">Why Choose Pomodoro?</h2>
-
-            <div className="space-y-6 text-lg text-zinc-500 leading-relaxed">
-              <p>
-                Built around the proven Pomodoro technique, this app keeps your workflow structured and intentional.
-                Focus Mode pushes you into deep concentration, while Break Time ensures you recharge properly.
-              </p>
-              <p>
-                With automatic session switching, vibration alerts, and clean controls, you can stay productive without
-                overthinking your schedule.
-              </p>
-              <p>
-                Just press start, enter Focus Mode, and let the timer guide your rhythm. Simple structure. Consistent
-                results.
-              </p>
-            </div>
-          </div>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-zinc-900 mb-6">Want to see more?</h2>
+          <p className="text-lg text-zinc-500 mb-10 max-w-2xl mx-auto">
+            I am constantly building new tools and apps. Check back often to see the latest additions to my mobile
+            portfolio.
+          </p>
+          <a
+            href="https://github.com/Co3code"
+            target="_blank"
+            className="text-zinc-900 font-bold underline underline-offset-4"
+          >
+            Follow my GitHub
+          </a>
         </motion.div>
       </div>
     </main>
