@@ -86,7 +86,7 @@ export default function AppPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-             <span className="inline-block py-1 px-3 rounded-full bg-zinc-100 text-zinc-600 text-xs font-semibold tracking-wider uppercase mb-6">
+            <span className="inline-block py-1 px-3 rounded-full bg-zinc-100 text-zinc-600 text-xs font-semibold tracking-wider uppercase mb-6">
               Utility Tool
             </span>
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-zinc-900 mb-8 leading-[1.1]">
@@ -103,7 +103,7 @@ export default function AppPage() {
 
             <div className="flex flex-wrap gap-4">
               <a
-                href="https://github.com/Co3code/YOUR_REPO_NAME/releases/download/v1.0.0/AC-Calculator-v1.0.0.apk"
+                href="https://github.com/Co3code/my-cal/releases/download/v1.0.0/AC-Calculator-v1.0.0.apk"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-8 py-4 bg-zinc-900 text-white rounded-full font-bold hover:bg-zinc-800 transition-all group"
