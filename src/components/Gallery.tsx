@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import gallery1 from "../assets/trio.jpg";
-import gallery2 from "../assets/IT.jpg";
+import gallery2 from "../assets/grppic.jpg";
 import gallery3 from "../assets/projectdone.jpg";
 import gallery4 from "../assets/insert.jpg";
 import gallery5 from "../assets/liga.jpg";
@@ -8,7 +8,7 @@ import gallery6 from "../assets/skiefam.jpg";
 
 const galleryItems = [
   { id: 1, title: "Moment 1", category: "trio", image: gallery1 },
-  { id: 2, title: "Moment 2", category: "IT Days", image: gallery2 },
+  { id: 2, title: "Moment 2", category: "ohaha", image: gallery2 },
   { id: 3, title: "Moment 3", category: "skie fam", image: gallery3 },
   { id: 4, title: "Moment 4", category: "saw saw", image: gallery4 },
   { id: 5, title: "Moment 5", category: "the legendary leefam", image: gallery5 },

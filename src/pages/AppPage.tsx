@@ -173,7 +173,7 @@ export default function AppPage() {
             portfolio.
           </p>
           <a
-            href="https://github.com/Co3code"
+            href="https://github.com/"
             target="_blank"
             className="text-zinc-900 font-bold underline underline-offset-4"
           >
