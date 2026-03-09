@@ -15,26 +15,27 @@ const projects = [
   {
     title: "NoteVault",
     description:
-    "A personal note-taking app where users can register, log in, and store their own notes in a database. This app features user authentication, note creation, and a CRUD operation system, allowing users to manage their notes. Built with PHP, MySQL, JavaScript, and CSS.",
+      "A personal note-taking app where users can register, log in, and store their own notes in a database. This app features user authentication, note creation, and a CRUD operation system, allowing users to manage their notes. Built with PHP, MySQL, JavaScript, and CSS.",
     tags: ["HTML", "CSS", "JavaScript"],
     image: project2Img, // Use the correct image path for your project
   },
   {
     title: "Iron Gym",
     description:
-    "A landing page for a gym, built with HTML, CSS, and JavaScript. The website showcases gym services, membership plans, and features a contact form.",
+      "A landing page for a gym, built with HTML, CSS, and JavaScript. The website showcases gym services, membership plans, and features a contact form.",
     tags: ["PHP", "MySQL", "JavaScript", "CSS"],
     image: project3Img, // Use the correct image path for your project
   },
 ];
+
 export default function Projects() {
   return (
     <section id="projects" className="section-padding bg-zinc-50/50">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-zinc-900 mb-4">Featured Projects</h2>
-            <p className="text-zinc-500 max-w-xl">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900 mb-4">Featured Projects</h2>
+            <p className="text-gray-600 max-w-xl">
               A selection of my recent work, showcasing my ability to build robust and scalable applications.
             </p>
           </div>
@@ -64,21 +65,21 @@ export default function Projects() {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 bg-zinc-50 px-2 py-1 rounded"
+                      className="text-[10px] font-bold uppercase tracking-widest text-gray-500 bg-gray-50 px-2 py-1 rounded"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
-                <h3 className="text-xl font-bold text-zinc-900 mb-3 group-hover:text-zinc-600 transition-colors">
+                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-gray-600 transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-zinc-500 text-sm leading-relaxed mb-6">{project.description}</p>
+                <p className="text-gray-600 text-sm leading-relaxed mb-6">{project.description}</p>
                 <div className="flex items-center gap-4">
-                  <button className="p-2 rounded-full hover:bg-zinc-50 transition-colors text-zinc-400 hover:text-zinc-900">
+                  <button className="p-2 rounded-full hover:bg-gray-50 transition-colors text-gray-400 hover:text-gray-900">
                     <Github size={20} />
                   </button>
-                  <button className="p-2 rounded-full hover:bg-zinc-50 transition-colors text-zinc-400 hover:text-zinc-900">
+                  <button className="p-2 rounded-full hover:bg-gray-50 transition-colors text-gray-400 hover:text-gray-900">
                     <ExternalLink size={20} />
                   </button>
                 </div>

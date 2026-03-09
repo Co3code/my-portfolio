@@ -1,61 +1,60 @@
 import { motion } from "motion/react";
-import gallery1 from "../assets/trio.jpg";
-import gallery2 from "../assets/grppic.jpg";
-import gallery3 from "../assets/projectdone.jpg";
-import gallery4 from "../assets/insert.jpg";
-import gallery5 from "../assets/liga.jpg";
-import gallery6 from "../assets/skiefam.jpg";
+import { ChevronDown } from "lucide-react";
 
-const galleryItems = [
-  { id: 1, title: "Moment 1", category: "trio", image: gallery1 },
-  { id: 2, title: "Moment 2", category: "ohaha", image: gallery2 },
-  { id: 3, title: "Moment 3", category: "skie fam", image: gallery3 },
-  { id: 4, title: "Moment 4", category: "saw saw", image: gallery4 },
-  { id: 5, title: "Moment 5", category: "the legendary leefam", image: gallery5 },
-  { id: 6, title: "Moment 6", category: "IT Days", image: gallery6 },
+const faqs = [
+  {
+    question: "What year am I in?",
+    answer: "I am currently in my 3rd year of IT studies.",
+  },
+  {
+    question: "Which programming languages am I comfortable with?",
+    answer: "I mainly code in PHP, JavaScript, HTML, and CSS, and I’m learning React.",
+  },
+  {
+    question: "What is my coding habit?",
+    answer: "I try to code daily, practice small projects, and experiment with new technologies regularly.",
+  },
+  {
+    question: "How many hours do I usually code?",
+    answer: "On average, I spend around 3–5 hours coding each day, depending on my workload and projects.",
+  },
+  {
+    question: "What inspired me to choose coding?",
+    answer:
+      "I was inspired by how technology solves real problems and the ability to create apps that people can actually use.",
+  },
 ];
 
-export default function Gallery() {
+export default function FAQCollapsible() {
   return (
-    <section id="gallery" className="section-padding">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-zinc-900 mb-4">
-            Our Ongoing IT Journey Together
-          </h2>
-          <p className="text-zinc-500 max-w-2xl mx-auto">
-            A collection of six photos capturing the moments, growth, and friendships we've built during our third year
-            in IT.
-          </p>
-        </div>
+    <section id="faq" className="section-padding bg-gray-50 font-sans">
+      <div className="max-w-7xl mx-auto text-center mb-16">
+        <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 mb-4">
+          Frequently Asked Questions
+        </h2>
+        <p className="text-gray-600 max-w-2xl mx-auto">
+          Click the questions below to reveal the answers about my coding journey and habits.
+        </p>
+      </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {galleryItems.map((item, index) => (
-            <motion.div
-              key={item.id}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative aspect-square rounded-3xl overflow-hidden bg-zinc-100 card-shadow"
-            >
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                referrerPolicy="no-referrer"
-              />
-
-              <div className="absolute inset-0 bg-zinc-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-white/80 mb-2">
-                  {item.category}
-                </span>
-                <h3 className="text-xl font-bold text-white">{item.title}</h3>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+      <div className="max-w-4xl mx-auto space-y-4">
+        {faqs.map((item, index) => (
+          <motion.details
+            key={index}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: index * 0.1 }}
+            className="bg-white rounded-3xl shadow-lg p-6 group cursor-pointer"
+          >
+            <summary className="flex justify-between items-center font-semibold text-lg list-none group-open:text-gray-600 transition-colors">
+              {item.question}
+              <ChevronDown className="ml-2 h-5 w-5 text-gray-500 group-open:rotate-180 transition-transform duration-300" />
+            </summary>
+            <p className="mt-3 text-gray-600">{item.answer}</p>
+          </motion.details>
+        ))}
       </div>
     </section>
-  );
+  ); 
 }
