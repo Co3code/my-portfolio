@@ -1,16 +1,12 @@
-import { motion } from 'motion/react';
+import { motion } from "motion/react";
 
 export default function Map() {
   return (
     <section id="map" className="section-padding">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-zinc-900 mb-4">
-            My Location
-          </h2>
-          <p className="text-zinc-500 max-w-2xl mx-auto">
-            Find me in the heart of the tech world.
-          </p>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-zinc-900 mb-4">My Location</h2>
+          <p className="text-zinc-500 max-w-2xl mx-auto">Find me in the heart of the tech world.</p>
         </div>
 
         <motion.div

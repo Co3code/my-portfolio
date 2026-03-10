@@ -1,12 +1,12 @@
 import { useState, useRef } from "react";
-import { motion } from "framer-motion"; // Changed to 'framer-motion' as it is more common
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
+import { Mail, Phone, MapPin, Send, CheckCircle2 } from "lucide-react";
 import emailjs from "@emailjs/browser";
 
 export default function Contact() {
   const formRef = useRef();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [confirmation, setConfirmation] = useState("");
+  const [status, setStatus] = useState(null); // 'success', 'error', or null
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
@@ -17,124 +17,121 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
-    setConfirmation("");
+    setStatus(null);
 
-    // Use sendForm to make sure all data from formRef is sent correctly
     emailjs
       .sendForm(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         formRef.current,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
       )
       .then(() => {
         setLoading(false);
-        setConfirmation("Thank you for your message 🙌");
+        setStatus("success");
         setForm({ name: "", email: "", message: "" });
+        // Clear success message after 5 seconds
+        setTimeout(() => setStatus(null), 5000);
       })
       .catch((err) => {
         setLoading(false);
+        setStatus("error");
         console.error("EmailJS Error:", err);
-        setConfirmation("Something went wrong. Please check your .env file.");
       });
   };
 
   return (
-    <section id="contact" className="py-20 bg-zinc-50/50">
+    <section id="contact" className="py-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Contact Info */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+          {/* Left Side: Editorial Info */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-zinc-900 mb-8">
-              Get in Touch
+            <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-zinc-400 mb-6 block">Inquiry</span>
+            <h2 className="text-5xl md:text-7xl font-serif font-bold text-zinc-900 mb-8 leading-tight">
+              Let's build <br />
+              <span className="italic font-normal text-zinc-400 text-4xl md:text-6xl">together.</span>
             </h2>
-            <p className="text-lg text-zinc-500 mb-12 leading-relaxed">
-              Have a project in mind or just want to say hello? I'd love to hear from you.
+            <p className="text-lg text-zinc-500 mb-12 max-w-md leading-relaxed">
+              Whether you have a question or just want to discuss a new project, my inbox is always open.
             </p>
 
-            <div className="space-y-8">
-              <div className="flex items-start gap-6">
-                <div className="w-12 h-12 flex items-center justify-center bg-white rounded-2xl shadow-sm text-zinc-900 shrink-0">
-                  <Mail size={20} />
+            <div className="space-y-10">
+              {[
+                { icon: <Mail size={18} />, title: "Email", detail: "anthonycountian7@gmail.com" },
+                { icon: <Phone size={18} />, title: "Phone", detail: "0991 677 2811" },
+                { icon: <MapPin size={18} />, title: "Location", detail: "Gingoog City, PH" },
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-6 group">
+                  <div className="w-12 h-12 flex items-center justify-center bg-zinc-50 rounded-2xl text-zinc-400 group-hover:bg-zinc-900 group-hover:text-white transition-all duration-300">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <h4 className="text-[10px] font-bold uppercase tracking-widest text-zinc-400">{item.title}</h4>
+                    <p className="text-zinc-900 font-medium">{item.detail}</p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-bold text-zinc-900 mb-1">Email</h4>
-                  <p className="text-zinc-500">anthonycountian7@gmail.com</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-6">
-                <div className="w-12 h-12 flex items-center justify-center bg-white rounded-2xl shadow-sm text-zinc-900 shrink-0">
-                  <Phone size={20} />
-                </div>
-                <div>
-                  <h4 className="font-bold text-zinc-900 mb-1">Phone</h4>
-                  <p className="text-zinc-500">09916772811</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-6">
-                <div className="w-12 h-12 flex items-center justify-center bg-white rounded-2xl shadow-sm text-zinc-900 shrink-0">
-                  <MapPin size={20} />
-                </div>
-                <div>
-                  <h4 className="font-bold text-zinc-900 mb-1">Location</h4>
-                  <p className="text-zinc-500">Gingoog City</p>
-                </div>
-              </div>
+              ))}
             </div>
           </motion.div>
 
-          {/* Contact Form */}
+          {/* Right Side: Modern Form */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-xl"
+            transition={{ duration: 0.8 }}
+            className="relative"
           >
-            <form className="space-y-6" ref={formRef} onSubmit={handleSubmit}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-sm font-semibold text-zinc-900 ml-1">Name</label>
+            <form
+              ref={formRef}
+              onSubmit={handleSubmit}
+              className="space-y-8 bg-zinc-50/50 p-8 md:p-12 rounded-[3rem] border border-zinc-100"
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-3">
+                  <label className="text-[10px] font-bold uppercase tracking-widest text-zinc-900 ml-1">
+                    Your Name
+                  </label>
                   <input
                     type="text"
                     name="name"
                     value={form.name}
                     onChange={handleChange}
-                    placeholder="Your Name"
-                    className="w-full px-6 py-4 bg-zinc-50 border-none rounded-2xl focus:ring-2 focus:ring-zinc-900 outline-none"
+                    placeholder="Enter name"
+                    className="w-full px-0 py-3 bg-transparent border-b border-zinc-200 focus:border-zinc-900 outline-none transition-colors placeholder:text-zinc-300"
                     required
                   />
                 </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-semibold text-zinc-900 ml-1">Email</label>
+                <div className="space-y-3">
+                  <label className="text-[10px] font-bold uppercase tracking-widest text-zinc-900 ml-1">
+                    Email Address
+                  </label>
                   <input
                     type="email"
                     name="email"
                     value={form.email}
                     onChange={handleChange}
-                    placeholder="email@example.com"
-                    className="w-full px-6 py-4 bg-zinc-50 border-none rounded-2xl focus:ring-2 focus:ring-zinc-900 outline-none"
+                    placeholder="example@mail.com"
+                    className="w-full px-0 py-3 bg-transparent border-b border-zinc-200 focus:border-zinc-900 outline-none transition-colors placeholder:text-zinc-300"
                     required
                   />
                 </div>
               </div>
 
-              <div className="space-y-2">
-                <label className="text-sm font-semibold text-zinc-900 ml-1">Message</label>
+              <div className="space-y-3">
+                <label className="text-[10px] font-bold uppercase tracking-widest text-zinc-900 ml-1">Message</label>
                 <textarea
-                  rows={5}
+                  rows={4}
                   name="message"
                   value={form.message}
                   onChange={handleChange}
-                  placeholder="Tell me about your project..."
-                  className="w-full px-6 py-4 bg-zinc-50 border-none rounded-2xl focus:ring-2 focus:ring-zinc-900 outline-none resize-none"
+                  placeholder="How can I help you?"
+                  className="w-full px-0 py-3 bg-transparent border-b border-zinc-200 focus:border-zinc-900 outline-none transition-colors resize-none placeholder:text-zinc-300"
                   required
                 ></textarea>
               </div>
@@ -142,17 +139,41 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full py-4 bg-zinc-900 text-white rounded-2xl font-bold hover:bg-zinc-800 transition-all flex items-center justify-center gap-2 disabled:opacity-50"
+                className="w-full py-5 bg-zinc-900 text-white rounded-full font-bold uppercase text-[10px] tracking-[0.2em] hover:bg-zinc-800 transition-all flex items-center justify-center gap-3 disabled:opacity-50 group"
               >
-                {loading ? "Sending..." : "Send Message"}
-                <Send size={18} />
+                {loading ? "Sending Message..." : "Send Inquiry"}
+                {!loading && (
+                  <Send
+                    size={14}
+                    className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+                  />
+                )}
               </button>
 
-              {confirmation && (
-                <p className={`mt-4 text-center font-medium ${confirmation.includes("wrong") ? "text-red-500" : "text-green-600"}`}>
-                  {confirmation}
-                </p>
-              )}
+              {/* Status Messages */}
+              <AnimatePresence>
+                {status === "success" && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                    className="flex items-center justify-center gap-2 text-green-600 font-bold text-sm pt-4"
+                  >
+                    <CheckCircle2 size={18} />
+                    Message sent successfully!
+                  </motion.div>
+                )}
+                {status === "error" && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                    className="text-red-500 font-bold text-sm text-center pt-4"
+                  >
+                    Something went wrong. Please try again.
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </form>
           </motion.div>
         </div>
