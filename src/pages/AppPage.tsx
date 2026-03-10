@@ -115,7 +115,7 @@ export default function AppPage() {
             </p>
 
             <a
-              href="https://github.com/Co3code/my-cal/releases/download/v1.0.0/AC-Calculator-v1.0.0.apk"
+              href="https://github.com/Co3code/my-cal/releases/download/v2.0.0.0/AC-Calculator-v2.0.0.apk"
               className="inline-flex items-center justify-center px-8 py-4 border-2 border-zinc-200 text-zinc-900 rounded-full font-bold uppercase text-xs tracking-widest hover:bg-zinc-50 transition-all shadow-sm"
             >
               <Download className="mr-2" size={18} />
