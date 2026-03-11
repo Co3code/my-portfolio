@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { ArrowRight, Sparkles, Code2, Globe, Cpu, Palette, Layout, Terminal } from "lucide-react";
 import { Link } from "react-router-dom";
-import hero from "../assets/niceone.jpg";
+import hero from "../assets/attire.jpg";
 
 export default function Hero() {
   const techStack = [

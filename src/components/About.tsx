@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { motion } from "motion/react";
-import myProfilePhoto from "../assets/myphtoooo.png";
-import hoverPhoto from "../assets/joker.jpg";
+import myProfilePhoto from "../assets/laptop.jpg";
+import hoverPhoto from "../assets/cross.jpg";
 
 export default function About() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });

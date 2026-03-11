@@ -45,7 +45,7 @@ export default function AppPage() {
             <h1 className="text-5xl md:text-7xl font-serif font-bold text-zinc-900 mb-8 leading-tight">
               Pomodoro{" "}
               <span className="py-0.5 px-2 rounded bg-green-50 text-green-600 text-[10px] font-bold border border-green-100">
-                v1.0.0 Stable
+                v2.0.0 Stable
               </span>
               <br />
               <span className="italic font-normal text-zinc-500 text-4xl md:text-6xl">Efficiency Redefined.</span>
@@ -56,7 +56,7 @@ export default function AppPage() {
             </p>
 
             <a
-              href="https://github.com/Co3code/pomodoro-app/releases/download/v1.0.0/pomodoro.apk"
+              href="https://github.com/Co3code/pomodoro-app/releases/download/v2.0.0/pomodoro-v2.0.0.apk"
               className="inline-flex items-center justify-center px-8 py-4 border-2 border-zinc-200 text-zinc-900 rounded-full font-bold uppercase text-xs tracking-widest hover:bg-zinc-50 transition-all shadow-sm"
             >
               <Download className="mr-2" size={18} />
@@ -104,7 +104,7 @@ export default function AppPage() {
             <h2 className="text-5xl md:text-7xl font-serif font-bold text-zinc-900 mb-8 leading-tight">
               AC Calc{" "}
               <span className="py-0.5 px-2 rounded bg-blue-50 text-blue-600 text-[10px] font-bold border border-blue-100">
-                v1.0.0
+                v2.0.0
               </span>{" "}
               <br />
               <span className="italic font-normal text-zinc-500 text-4xl md:text-6xl">Simple. Accurate.</span>
