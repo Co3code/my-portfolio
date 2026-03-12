@@ -1,4 +1,4 @@
-import { Github, Twitter, Linkedin, Instagram, ArrowUp } from "lucide-react";
+import { Github, Linkedin, Facebook, ArrowUp, Instagram } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -22,10 +22,18 @@ export default function Footer() {
           {/* Social Links with Tooltips/Hover Effect */}
           <div className="flex items-center space-x-8">
             {[
-              { icon: <Github size={20} />, href: "https://github.com/Co3code", label: "Github" },
-              { icon: <Linkedin size={20} />, href: "#", label: "LinkedIn" },
-              { icon: <Twitter size={20} />, href: "#", label: "Twitter" },
-              { icon: <Instagram size={20} />, href: "#", label: "Instagram" },
+              { icon: <Github size={20} />, href: "https://github.com/Tch-Lian", label: "Github" },
+              {
+                icon: <Linkedin size={20} />,
+                href: "https://www.linkedin.com/in/anthony-obedencio-a20555395/",
+                label: "LinkedIn",
+              },
+              {
+                icon: <Instagram size={20} />,
+                href: "https://www.instagram.com/co_untian?igsh=Zm5uajQ1MjkxbTFt",
+                label: "Instagram",
+              },
+              { icon: <Facebook size={20} />, href: "https://www.facebook.com/cy.yan.539259", label: "facebook" },
             ].map((social) => (
               <a
                 key={social.label}

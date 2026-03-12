@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { motion } from "motion/react";
-import myProfilePhoto from "../assets/laptop.jpg";
+import myProfilePhoto from "../assets/about4.jpg";
 import hoverPhoto from "../assets/cross.jpg";
 
 export default function About() {

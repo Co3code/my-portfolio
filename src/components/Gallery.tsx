@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Plus, Minus } from "lucide-react";
 // Import your secondary photo here
-import faqImage from "../assets/quest-removebg-preview.png";
+import faqImage from "../assets/quer.jpg";
 
 const faqs = [
   {

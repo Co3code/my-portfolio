@@ -11,8 +11,8 @@ const projects = [
       "An album gallery built with Bootstrap, where static UI components were integrated with backend functionality using the Dalira framework.",
     tags: ["PHP", "MySQL", "Bootstrap", "dalira"],
     image: project1Img,
-    link: "#",
-    github: "#",
+    link: "",
+    github: "",
   },
   {
     title: "NoteVault",
@@ -20,8 +20,8 @@ const projects = [
       "Secure personal workspace for digital notes. Features full CRUD functionality with a focus on user privacy and organized data storage.",
     tags: ["JavaScript", "MySQL", "PHP"],
     image: project2Img,
-    link: "#",
-    github: "#",
+    link: "https://notevault.great-site.net/auth/login.php",
+    github: "",
   },
   {
     title: "Iron Gym",
@@ -29,8 +29,8 @@ const projects = [
       "High-energy landing page for fitness centers. Optimized for conversion with membership plans and interactive service displays.",
     tags: ["HTML", "CSS", "JavaScript"],
     image: project3Img,
-    link: "#",
-    github: "#",
+    link: "",
+    github: "",
   },
 ];
 
