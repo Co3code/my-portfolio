@@ -80,12 +80,22 @@ export default function Hero() {
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={16} />
               </a>
 
+              {/* 
               <Link
                 to="/view-app"
                 className="w-fit inline-flex items-center justify-center px-6 py-3 border-2 border-gray-200 text-gray-900 rounded-full font-semibold tracking-widest uppercase text-[10px] sm:text-xs hover:bg-gray-100 hover:border-gray-300 transition-all duration-300"
               >
                 See My App
               </Link>
+              
+              */}
+              <a
+                href="/AnthonyCo_Resume.pdf" // <-- file in public folder
+                download="AnthonyCo_Resume.pdf"
+                className="w-fit inline-flex items-center justify-center px-6 py-3 border-2 border-gray-200 text-gray-900 rounded-full font-semibold tracking-widest uppercase text-[10px] sm:text-xs hover:bg-gray-100 hover:border-gray-300 transition-all duration-300"
+              >
+                Download My CV
+              </a>
             </div>
           </div>
         </motion.div>
