@@ -1,83 +1,120 @@
-import React from "react";
 import { motion } from "motion/react";
 
 const skills = [
   { name: "PHP" },
   { name: "CSS" },
-  { name: "JAVASCRIPT" },
-  { name: "GIT" },
-  { name: "FIREBASE" },
-  { name: "PYTHON" },
-  { name: "MYSQL" },
+  { name: "JavaScript" },
+  { name: "Git" },
+  { name: "Firebase" },
+  { name: "Python" },
+  { name: "MySQL" },
 ];
 
-// Duplicated for a seamless infinite horizontal loop
 const duplicatedSkills = [...skills, ...skills, ...skills, ...skills];
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-32 bg-white overflow-hidden relative">
-      {/* Header Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 relative z-30 text-center">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-4xl md:text-6xl font-serif font-bold tracking-tighter text-gray-900 uppercase"
+    <section id="skills" className="relative py-28 bg-[#0a0a0f] overflow-hidden">
+
+      {/* Background Grid */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)",
+          backgroundSize: "60px 60px",
+        }}
+      />
+
+      {/* Center Orb */}
+      <motion.div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[300px] rounded-full pointer-events-none"
+        style={{ background: "radial-gradient(ellipse, rgba(120,90,255,0.10) 0%, transparent 70%)" }}
+        animate={{ opacity: [0.6, 1, 0.6], scale: [1, 1.08, 1] }}
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+      />
+
+      {/* Header */}
+      <motion.div
+        className="relative z-10 text-center px-6 mb-20"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        <h2
+          className="text-[clamp(2.5rem,5vw,4.5rem)] leading-none tracking-tight uppercase text-[#f0ede6]"
+          style={{ fontFamily: "'DM Serif Display', serif" }}
         >
-          Technical <span className="text-gray-600 italic font-serif lowercase">Expertise</span>
-        </motion.h2>
-      </div>
+          Technical{" "}
+          <em
+            className="italic lowercase text-[#f0ede6]/30"
+            style={{ fontFamily: "'DM Serif Display', serif" }}
+          >
+            Expertise
+          </em>
+        </h2>
+      </motion.div>
 
-      <div className="relative flex items-center py-10">
-        {/* Horizontal Fading Gradients (Left & Right) */}
-        <div className="absolute inset-y-0 left-0 w-32 md:w-64 bg-gradient-to-r from-white via-white/80 to-transparent z-20 pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-32 md:w-64 bg-gradient-to-l from-white via-white/80 to-transparent z-20 pointer-events-none" />
+      {/* Marquee */}
+      <div className="relative flex items-center py-8">
 
-        {/* The Marquee Container */}
-        <div className="flex overflow-hidden">
+        {/* Fade edges */}
+        <div
+          className="absolute inset-y-0 left-0 w-44 z-10 pointer-events-none"
+          style={{ background: "linear-gradient(to right, #0a0a0f, transparent)" }}
+        />
+        <div
+          className="absolute inset-y-0 right-0 w-44 z-10 pointer-events-none"
+          style={{ background: "linear-gradient(to left, #0a0a0f, transparent)" }}
+        />
+
+        {/* Center focus bar */}
+        <div
+          className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-[280px] pointer-events-none z-[1]"
+          style={{
+            borderLeft: "1px solid rgba(120,90,255,0.15)",
+            borderRight: "1px solid rgba(120,90,255,0.15)",
+            background: "rgba(120,90,255,0.025)",
+          }}
+        />
+
+        {/* Track */}
+        <div className="overflow-hidden w-full">
           <motion.div
-            animate={{ x: ["0%", "-100%"] }} // Continuous scroll to the left
-            transition={{
-              duration: 150, // Much slower and continuous
-              repeat: Infinity, // Infinite loop, no back-and-forth motion
-              ease: "linear", // Keep the movement smooth and steady
-            }}
-            style={{
-              willChange: "transform",
-            }}
-            className="flex gap-12 md:gap-24 items-center whitespace-nowrap transform-gpu"
+            className="flex gap-16 whitespace-nowrap items-center"
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+            style={{ willChange: "transform" }}
           >
             {duplicatedSkills.map((skill, index) => (
-              <div key={`${skill.name}-${index}`} className="group flex items-center justify-center">
+              <div
+                key={`${skill.name}-${index}`}
+                className="inline-flex items-center gap-6 group cursor-default relative z-[2]"
+              >
                 <span
-                  className="text-4xl md:text-5xl font-serif italic tracking-tight select-none leading-none 
-                             text-gray-600 transition-all duration-500
-                             group-hover:text-gray-800 group-hover:scale-110 group-hover:drop-shadow-[0_0_30px_rgba(0,0,0,0.1)]"
+                  className="text-[clamp(2.5rem,4vw,3.5rem)] leading-none select-none text-[#f0ede6]/25 transition-all duration-500 group-hover:text-[#f0ede6]/85"
                   style={{
-                    textRendering: "optimizeLegibility",
-                    WebkitFontSmoothing: "antialiased",
-                    fontFamily: '"Dancing Script", cursive', // Using a cursive font
+                    fontFamily: "'Dancing Script', cursive",
+                    fontWeight: 600,
+                    textShadow: "none",
+                    transition: "color 0.4s ease, text-shadow 0.4s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.textShadow = "0 0 40px rgba(120,90,255,0.4)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.textShadow = "none";
                   }}
                 >
                   {skill.name}
                 </span>
+                <span className="w-1 h-1 rounded-full bg-white/10 flex-shrink-0 group-hover:bg-[rgba(120,90,255,0.5)] transition-colors duration-300" />
               </div>
             ))}
           </motion.div>
         </div>
-
-        {/* Center Vertical Focus Bar (Glass effect) */}
-        <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[600px] h-full pointer-events-none 
-                        border-x border-gray-300/30 bg-gray-50/5 backdrop-blur-[1px] -z-10 
-                        shadow-[0_0_100px_rgba(0,0,0,0.05)]"
-        />
       </div>
-
-      {/* Ambient Glow behind the scroller */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[300px] bg-gray-200/20 rounded-full blur-[120px] -z-20 animate-pulse" />
     </section>
   );
 };

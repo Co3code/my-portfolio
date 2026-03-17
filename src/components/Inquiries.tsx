@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Plus, Minus } from "lucide-react";
-// Import your secondary photo here
 import faqImage from "../assets/quer.jpg";
 
 const testimonials = [
@@ -58,68 +57,101 @@ export default function FAQ() {
 
   return (
     <>
-      {/* FAQ Section */}
-      <section id="faq" className="py-24 bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
-            {/* Left Side: Sticky Image */}
-            <div className="lg:w-1/3">
+      {/* ── FAQ Section ── */}
+      <section id="faq" className="relative py-28 bg-[#0a0a0f] overflow-hidden">
+
+        {/* Background Grid */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
+
+        {/* Orbs */}
+        <div
+          className="absolute -top-16 -left-16 w-[400px] h-[400px] rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(120,90,255,0.12) 0%, transparent 70%)" }}
+        />
+        <div
+          className="absolute -bottom-10 -right-10 w-[300px] h-[300px] rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(circle, rgba(60,180,150,0.08) 0%, transparent 70%)" }}
+        />
+
+        <div className="relative z-10 max-w-5xl mx-auto px-6 sm:px-10">
+          <div className="flex flex-col lg:flex-row gap-16 lg:gap-20">
+
+            {/* Left — Sticky */}
+            <div className="lg:w-[280px] flex-shrink-0">
               <div className="lg:sticky lg:top-32">
                 <motion.span
+                  className="block text-[10px] font-medium tracking-[0.2em] uppercase text-[#f0ede6]/25 mb-4"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
-                  className="text-xs font-bold tracking-[0.2em] uppercase text-gray-400 mb-4 block"
+                  viewport={{ once: true }}
                 >
                   Information
                 </motion.span>
-                <h2 className="text-4xl md:text-6xl font-serif font-bold text-gray-900 mb-8 leading-tight">
+
+                <h2
+                  className="text-[clamp(2.5rem,4vw,3.8rem)] leading-[1.05] text-[#f0ede6] mb-8 tracking-tight"
+                  style={{ fontFamily: "'DM Serif Display', serif" }}
+                >
                   Common <br />
-                  <span className="italic font-normal text-gray-500">Inquiries</span>
+                  <em className="italic text-[#f0ede6]/30" style={{ fontFamily: "'DM Serif Display', serif" }}>
+                    Inquiries
+                  </em>
                 </h2>
 
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
+                  className="relative hidden lg:block aspect-[3/4] rounded-2xl overflow-hidden border border-white/[0.06] bg-[#13121f]"
+                  initial={{ opacity: 0, scale: 0.95 }}
                   whileInView={{ opacity: 1, scale: 1 }}
-                  className="relative hidden lg:block aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl"
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8 }}
                 >
                   <img
                     src={faqImage}
                     alt="FAQ Visual"
                     className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                   />
-                  <div className="absolute inset-0 bg-gray-900/10" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f]/40 to-transparent" />
                 </motion.div>
               </div>
             </div>
 
-            {/* Right Side: FAQ List */}
-            <div className="lg:w-2/3">
-              <div className="divide-y divide-gray-100 border-t border-gray-100">
+            {/* Right — FAQ List */}
+            <div className="flex-1">
+              <div className="border-t border-white/[0.06]">
                 {faqs.map((item, index) => {
                   const isOpen = activeIndex === index;
-
                   return (
-                    <div key={index} className="overflow-hidden">
+                    <div key={index} className="border-b border-white/[0.06] overflow-hidden">
                       <button
                         onClick={() => setActiveIndex(isOpen ? null : index)}
-                        className="w-full py-8 flex justify-between items-center text-left group transition-all"
+                        className="w-full py-7 flex justify-between items-center text-left gap-6 group"
                       >
                         <span
-                          className={`text-xl md:text-2xl font-medium pr-8 transition-colors duration-300 ${
-                            isOpen ? "text-gray-900" : "text-gray-400 group-hover:text-gray-600"
+                          className={`text-lg md:text-xl font-normal pr-4 transition-colors duration-300 leading-snug ${
+                            isOpen ? "text-[#f0ede6]" : "text-[#f0ede6]/35 group-hover:text-[#f0ede6]/65"
                           }`}
                         >
                           {item.question}
                         </span>
-                        <div
-                          className={`flex-shrink-0 p-2 rounded-full transition-all duration-300 ${
+                        <span
+                          className={`w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center border transition-all duration-300 ${
                             isOpen
-                              ? "bg-gray-900 text-white rotate-180"
-                              : "bg-gray-50 text-gray-400 group-hover:bg-gray-100"
+                              ? "bg-[#f0ede6] border-[#f0ede6]"
+                              : "bg-white/[0.03] border-white/[0.08] group-hover:border-white/[0.15]"
                           }`}
                         >
-                          {isOpen ? <Minus size={18} /> : <Plus size={18} />}
-                        </div>
+                          {isOpen
+                            ? <Minus size={14} className="text-[#0a0a0f]" />
+                            : <Plus size={14} className="text-[#f0ede6]/50" />
+                          }
+                        </span>
                       </button>
 
                       <AnimatePresence>
@@ -130,7 +162,7 @@ export default function FAQ() {
                             exit={{ height: 0, opacity: 0 }}
                             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                           >
-                            <p className="pb-8 text-gray-500 text-base md:text-lg leading-relaxed max-w-2xl">
+                            <p className="pb-7 text-[0.88rem] text-[#f0ede6]/45 leading-relaxed max-w-xl">
                               {item.answer}
                             </p>
                           </motion.div>
@@ -145,74 +177,102 @@ export default function FAQ() {
         </div>
       </section>
 
-      {/* Testimonial Carousel */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="mb-16 text-center">
-            <h2 className="text-4xl font-serif font-bold text-gray-900">
-              Client <span className="italic font-normal text-gray-500">Feedback</span>
-            </h2>
-          </div>
+      {/* ── Testimonials Section ── */}
+      <section className="relative py-24 bg-[#0a0a0f] overflow-hidden border-t border-white/[0.04]">
+        <motion.div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full pointer-events-none"
+          style={{ background: "radial-gradient(ellipse, rgba(120,90,255,0.08) 0%, transparent 70%)" }}
+          animate={{ opacity: [0.6, 1, 0.6] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        />
 
-          <div className="relative flex flex-col items-center">
+        <div className="relative z-10 max-w-lg mx-auto px-6 text-center">
+          <motion.h2
+            className="text-[clamp(2rem,4vw,3.5rem)] leading-none text-[#f0ede6] mb-12 tracking-tight"
+            style={{ fontFamily: "'DM Serif Display', serif" }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
+            Client{" "}
+            <em className="italic text-[#f0ede6]/30" style={{ fontFamily: "'DM Serif Display', serif" }}>
+              Feedback
+            </em>
+          </motion.h2>
+
+          {/* Card */}
+          <div className="relative mb-6">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeTestimonial}
-                initial={{ opacity: 0, x: 50 }}
+                initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -50 }}
-                transition={{ duration: 0.5 }}
-                className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 w-full max-w-md"
+                exit={{ opacity: 0, x: -30 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                className="bg-white/[0.03] border border-white/[0.07] rounded-2xl p-7 text-left"
               >
-                <div className="flex items-center gap-4 mb-6">
+                {/* Quote mark */}
+                <span
+                  className="block text-[2.5rem] leading-[0.5] mb-3 text-[rgba(120,90,255,0.3)]"
+                  style={{ fontFamily: "'DM Serif Display', serif" }}
+                >
+                  "
+                </span>
+
+                {/* Avatar + Name */}
+                <div className="flex items-center gap-3 mb-5">
                   <img
                     src={testimonials[activeTestimonial].image}
                     alt={testimonials[activeTestimonial].name}
-                    className="w-12 h-12 rounded-full grayscale hover:grayscale-0 transition-all duration-500"
+                    className="w-11 h-11 rounded-full border border-white/[0.08] object-cover grayscale hover:grayscale-0 transition-all duration-500 flex-shrink-0"
                   />
                   <div>
-                    <h4 className="font-bold text-gray-900">{testimonials[activeTestimonial].name}</h4>
-                    <p className="text-sm text-gray-400 uppercase tracking-wider">
+                    <p className="text-[0.9rem] font-medium text-[#f0ede6]">
+                      {testimonials[activeTestimonial].name}
+                    </p>
+                    <p className="text-[9px] tracking-[0.15em] uppercase text-[#f0ede6]/30 mt-0.5">
                       {testimonials[activeTestimonial].role}
                     </p>
                   </div>
                 </div>
-                <p className="text-gray-600 italic leading-relaxed">"{testimonials[activeTestimonial].message}"</p>
+
+                <p className="text-[0.88rem] text-[#f0ede6]/45 leading-relaxed italic">
+                  {testimonials[activeTestimonial].message}
+                </p>
               </motion.div>
             </AnimatePresence>
+          </div>
 
-            {/* Circle Navigation */}
-            <div className="flex justify-center mt-6 gap-3">
-              {testimonials.map((_, index) => (
+          {/* Navigation */}
+          <div className="flex items-center justify-center gap-4">
+            <button
+              onClick={() => setActiveTestimonial(activeTestimonial === 0 ? testimonials.length - 1 : activeTestimonial - 1)}
+              className="w-9 h-9 rounded-full border border-white/[0.08] text-[#f0ede6]/40 hover:border-white/[0.2] hover:text-[#f0ede6] transition-all flex items-center justify-center text-sm"
+            >
+              ←
+            </button>
+
+            <div className="flex gap-2">
+              {testimonials.map((_, i) => (
                 <button
-                  key={index}
-                  className={`w-3 h-3 rounded-full transition-all ${
-                    index === activeTestimonial ? "bg-gray-900" : "bg-gray-400"
+                  key={i}
+                  onClick={() => setActiveTestimonial(i)}
+                  className={`rounded-full transition-all duration-300 border-none cursor-pointer ${
+                    i === activeTestimonial
+                      ? "w-4 h-1.5 bg-[#f0ede6]"
+                      : "w-1.5 h-1.5 bg-white/15 hover:bg-white/30"
                   }`}
-                  onClick={() => setActiveTestimonial(index)}
-                ></button>
+                />
               ))}
             </div>
 
-            {/* Optional Arrows */}
-            <div className="flex justify-between w-full max-w-md mt-4">
-              <button
-                onClick={() =>
-                  setActiveTestimonial(activeTestimonial === 0 ? testimonials.length - 1 : activeTestimonial - 1)
-                }
-                className="text-gray-500 hover:text-gray-900"
-              >
-                ←
-              </button>
-              <button
-                onClick={() =>
-                  setActiveTestimonial(activeTestimonial === testimonials.length - 1 ? 0 : activeTestimonial + 1)
-                }
-                className="text-gray-500 hover:text-gray-900"
-              >
-                →
-              </button>
-            </div>
+            <button
+              onClick={() => setActiveTestimonial(activeTestimonial === testimonials.length - 1 ? 0 : activeTestimonial + 1)}
+              className="w-9 h-9 rounded-full border border-white/[0.08] text-[#f0ede6]/40 hover:border-white/[0.2] hover:text-[#f0ede6] transition-all flex items-center justify-center text-sm"
+            >
+              →
+            </button>
           </div>
         </div>
       </section>
