@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Plus, Minus } from "lucide-react";
-import faqImage from "../assets/quer.jpg";
+import faqImage from "../assets/question.jpg";
 
 const testimonials = [
   {
@@ -115,7 +115,7 @@ export default function FAQ() {
                   <img
                     src={faqImage}
                     alt="FAQ Visual"
-                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                    className="w-full h-full object-cover transition-all duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f]/40 to-transparent" />
                 </motion.div>

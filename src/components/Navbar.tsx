@@ -65,7 +65,7 @@ export default function Navbar() {
             href="/#contact"
             className="hidden md:inline-flex items-center px-5 py-2 rounded-full border border-white/[0.1] bg-white/[0.04] text-[10px] font-medium tracking-[0.15em] uppercase text-[#f0ede6]/60 hover:border-white/[0.2] hover:text-[#f0ede6] transition-all duration-300"
           >
-            Hire Me
+            Say Hello
           </a>
 
           <button
@@ -111,7 +111,7 @@ export default function Navbar() {
                 onClick={() => setIsOpen(false)}
                 className="inline-flex items-center px-5 py-2.5 rounded-full border border-white/[0.1] bg-white/[0.04] text-[10px] font-medium tracking-[0.15em] uppercase text-[#f0ede6]/60 hover:text-[#f0ede6] hover:border-white/[0.2] transition-all"
               >
-                Hire Me
+                Say Hello
               </a>
             </div>
           </motion.div>

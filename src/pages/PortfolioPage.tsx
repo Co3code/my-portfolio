@@ -5,6 +5,7 @@ import Projects from "../components/Projects";
 import Gallery from "../components/Inquiries";
 import Pricing from "../components/Pricing"; // <-- new
 import Contact from "../components/Contact";
+
 import Map from "../components/Map";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
@@ -33,6 +34,7 @@ export default function PortfolioPage() {
       <Gallery />
       <Contact />
       <Map />
+
     </main>
   );
 }

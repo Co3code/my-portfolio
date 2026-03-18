@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
 import project1Img from "../assets/album.png";
-import project2Img from "../assets/notevault.png";
+import project2Img from "../assets/notevault2.png";
 import project3Img from "../assets/iron.png";
 
 const projects = [

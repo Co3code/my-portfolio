@@ -72,7 +72,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.7 }}
           >
-            Hi, I'm{" "}
+           
             <em className="italic text-[rgba(180,160,255,0.9)]">Anthony</em>
             <br />
             Co Untian Jr.

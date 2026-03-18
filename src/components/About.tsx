@@ -33,10 +33,7 @@ export default function About() {
   ];
 
   return (
-    <section
-      id="about"
-      className="relative py-28 bg-[#0a0a0f] overflow-hidden"
-    >
+    <section id="about" className="relative py-28 bg-[#0a0a0f] overflow-hidden">
       {/* Background Grid */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -58,7 +55,6 @@ export default function About() {
       />
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 sm:px-10 flex flex-col lg:flex-row items-center gap-16 lg:gap-20">
-
         {/* ── Image Column ── */}
         <motion.div
           className="flex-shrink-0 flex flex-col items-center gap-4"
@@ -68,7 +64,6 @@ export default function About() {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <div className="relative w-[280px] h-[350px] sm:w-[300px] sm:h-[375px]">
-
             {/* Photo Frame */}
             <motion.div
               ref={containerRef}
@@ -139,9 +134,7 @@ export default function About() {
 
           {/* Hint text */}
           {!isMobile && (
-            <p className="text-[9px] uppercase tracking-[0.3em] text-[#f0ede6]/25 font-medium">
-              Move cursor to reveal
-            </p>
+            <p className="text-[9px] uppercase tracking-[0.3em] text-[#f0ede6]/25 font-medium">secret weapon</p>
           )}
         </motion.div>
 
@@ -163,22 +156,19 @@ export default function About() {
             className="text-[clamp(3rem,6vw,5.5rem)] leading-[1] text-[#f0ede6] mb-8 tracking-tight"
             style={{ fontFamily: "'DM Serif Display', serif" }}
           >
-            About{" "}
-            <em className="italic text-[#f0ede6]/30">Me</em>
+            About <em className="italic text-[#f0ede6]/30">Me</em>
           </h2>
 
           {/* Body */}
           <div className="space-y-5 mb-0">
             <p className="text-[0.95rem] text-[#f0ede6]/50 leading-[1.85] max-w-[460px]">
-              Hello! I'm a dedicated web developer with a passion for creating{" "}
-              <span className="text-[#f0ede6]/85 font-medium italic">modern and efficient</span>{" "}
-              web applications. Based in the Philippines, I bridge the gap between complex
-              logic and{" "}
+              A dedicated web developer with a passion for creating{" "}
+              <span className="text-[#f0ede6]/85 font-medium italic">modern and efficient</span> web applications. Based
+              in the Philippines, I bridge the gap between complex logic and{" "}
               <span className="text-[#f0ede6]/85 font-medium">fluid user interfaces</span>.
             </p>
             <p className="text-[0.95rem] text-[#f0ede6]/50 leading-[1.85] max-w-[460px]">
-              I don't just write code — I build digital experiences. My journey is fueled
-              by a persistent curiosity for{" "}
+              I don't just write code — I build digital experiences. My journey is fueled by a persistent curiosity for{" "}
               <span
                 className="text-[#f0ede6]/85 font-medium"
                 style={{ borderBottom: "1px solid rgba(120,90,255,0.5)", paddingBottom: "1px" }}
@@ -196,9 +186,7 @@ export default function About() {
           <div className="grid grid-cols-2 gap-5 mb-8">
             {stats.map((s) => (
               <div key={s.label}>
-                <p className="text-[9px] uppercase tracking-[0.2em] text-[#f0ede6]/25 font-medium mb-1.5">
-                  {s.label}
-                </p>
+                <p className="text-[9px] uppercase tracking-[0.2em] text-[#f0ede6]/25 font-medium mb-1.5">{s.label}</p>
                 <p
                   className="text-[1.4rem] text-[#f0ede6] leading-none tracking-tight"
                   style={{ fontFamily: "'DM Serif Display', serif" }}
