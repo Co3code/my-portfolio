@@ -3,6 +3,8 @@ import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
 import project1Img from "../assets/album.png";
 import project2Img from "../assets/notevault2.png";
 import project3Img from "../assets/iron.png";
+import project4Img from "../assets/rabies.png";
+import project5Img from "../assets/aifoundit.png";
 
 const projects = [
   {
@@ -32,12 +34,31 @@ const projects = [
     link: "",
     github: "",
   },
+ 
+  {
+    title: "AIfoundIT",
+    description:
+      "A smart lost-and-found platform that uses AI to match lost and found items through image and text similarity..",
+    tags: ["HTML", "CSS", "JavaScript"],
+    image: project5Img,
+    link: "",
+    github: "",
+  },
+
+  {
+    title: "Rabies Bite Record System",
+    description:
+      "A web-based system that allows administrators to input and manage patient records related to rabies bite incidents",
+    tags: ["HTML", "CSS", "JavaScript"],
+    image: project4Img,
+    link: "",
+    github: "",
+  },
 ];
 
 export default function Projects() {
   return (
     <section id="projects" className="relative py-28 px-6 bg-[#0a0a0f] overflow-hidden">
-
       {/* Background Grid */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -59,7 +80,6 @@ export default function Projects() {
       />
 
       <div className="relative z-10 max-w-5xl mx-auto">
-
         {/* Header */}
         <motion.div
           className="mb-16"
@@ -156,9 +176,7 @@ export default function Projects() {
                 </div>
 
                 {/* Description */}
-                <p className="text-[0.82rem] text-[#f0ede6]/35 leading-relaxed line-clamp-2">
-                  {project.description}
-                </p>
+                <p className="text-[0.82rem] text-[#f0ede6]/35 leading-relaxed line-clamp-2">{project.description}</p>
               </div>
             </motion.div>
           ))}
